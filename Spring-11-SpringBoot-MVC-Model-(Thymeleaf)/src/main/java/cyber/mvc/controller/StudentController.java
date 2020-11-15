@@ -26,8 +26,8 @@ public class StudentController {
         String subject = "Collections";
         model.addAttribute("subject", subject);
 
-        int random = new Random().nextInt(1000);
-        model.addAttribute("random", random);
+        int id = new Random().nextInt(1000);
+        model.addAttribute("id", id);
 
         List<Integer> numbers= new ArrayList<>();
         numbers.add(4);
@@ -49,5 +49,10 @@ public class StudentController {
 
 
         return "student/welcome";
+    }
+
+    @GetMapping("register")
+    public String register(){
+        return "student/register";
     }
 }
