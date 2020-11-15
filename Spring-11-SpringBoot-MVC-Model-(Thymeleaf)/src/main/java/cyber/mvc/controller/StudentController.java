@@ -26,13 +26,15 @@ public class StudentController {
         String subject = "Collections";
         model.addAttribute("subject", subject);
 
-        int id = new Random().nextInt(1000);
-        model.addAttribute("id", id);
+        int random = new Random().nextInt(1000);
+        model.addAttribute("random", random);
 
         List<Integer> numbers= new ArrayList<>();
         numbers.add(4);
         numbers.add(3);
         numbers.add(2);
+        numbers.add(1);
+        numbers.add(0);
         model.addAttribute("numbers", numbers);
 
         LocalDate date= LocalDate.of(1997, 07, 07 );
