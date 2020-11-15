@@ -15,6 +15,10 @@ public class Java implements Course {
     public String getInstructor() {
         return instructor;
     }
+    @Autowired
+    public Selenium selenium;
+
+
 
     @Autowired
     public ExtraSessions extraSessions;

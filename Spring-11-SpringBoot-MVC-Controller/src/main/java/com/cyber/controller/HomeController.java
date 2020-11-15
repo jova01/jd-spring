@@ -21,7 +21,7 @@ public class HomeController {
     @RequestMapping(method= RequestMethod.POST, value="cyber/welcome")
     public String getRequestMapping3(){
         return "home";
-    }
+    }   
 
     @GetMapping("book/{id}")
     public String pathVariable(@PathVariable("id") String id){
