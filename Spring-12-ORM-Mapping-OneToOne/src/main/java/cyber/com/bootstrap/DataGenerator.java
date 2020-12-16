@@ -2,8 +2,8 @@ package cyber.com.bootstrap;
 
 import cyber.com.entity.Department;
 import cyber.com.entity.Employee;
+import cyber.com.entity.Region;
 import cyber.com.enums.Gender;
-import cyber.com.repository.DepartmentRepository;
 import cyber.com.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -20,14 +20,8 @@ public class DataGenerator implements CommandLineRunner {
     @Autowired
     EmployeeRepository employeeRepository;
 
-    @Autowired
-    DepartmentRepository departmentRepository;
-
-
     @Override
     public void run(String... args) throws Exception {
-
-
         Employee e1 = new Employee("Berrie", "Manueau", "bmanueau0@dion.ne.jp", LocalDate.of(2006,04,20), Gender.F,154864);
         Employee e2 = new Employee("Aeriell", "McNee", "amcnee1@google.es", LocalDate.of(2009,01,26), Gender.F,56752);
         Employee e3 = new Employee("Sydney", "Symonds", "ssymonds2@hhs.gov", LocalDate.of(2010,05,17), Gender.F,95313);
@@ -40,10 +34,29 @@ public class DataGenerator implements CommandLineRunner {
         Department d4 = new Department("Phones & Tablets","Electronics");
         Department d5 = new Department("Computers","Electronics");
 
-        List<Employee> employeeList = new ArrayList<>(Arrays.asList(e1, e2, e3, e4, e5));
-        List<Department> departmentList = new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5));
 
+
+        Region r1 = new Region("West","USA");
+        Region r2 = new Region("East","Japan");
+        Region r3 = new Region("Pacific","Mexico");
+        Region r4 = new Region("Middle Eastern","Egypt");
+        Region r5 = new Region("Central Asia","Tajikistan");
+
+        e1.setDepartment(d1);
+        e2.setDepartment(d2);
+        e3.setDepartment(d3);
+        e4.setDepartment(d4);
+        e5.setDepartment(d5);
+
+        e1.setRegion(r1);
+        e2.setRegion(r2);
+        e3.setRegion(r3);
+        e4.setRegion(r4);
+        e5.setRegion(r5);
+
+
+
+        List<Employee> employeeList = new ArrayList<>(Arrays.asList(e1, e2, e3, e4, e5));
         employeeRepository.saveAll(employeeList);
-        departmentRepository.saveAll(departmentList);
     }
 }
