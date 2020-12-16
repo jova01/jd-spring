@@ -1,12 +1,9 @@
-package cyber.com.entity;
+package com.cyber.entity;
 
-import cyber.com.enums.Gender;
-import jdk.jfr.Name;
-import lombok.AllArgsConstructor;
+import com.cyber.enums.Gender;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -16,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Entity
 @Table(name = "employees")
-public class Employee extends BaseEntity{
+public class Employee extends BaseEntity {
 
     String firstName;
     String lastName;
@@ -30,7 +27,7 @@ public class Employee extends BaseEntity{
 
     private int salary;
 
-    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
 
